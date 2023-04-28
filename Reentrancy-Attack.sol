@@ -29,7 +29,10 @@ Here is how the functions were called
 */
 
 contract EtherStore {
+
     mapping(address => uint) public balances;
+    
+    
 
     function deposit() public payable {
         balances[msg.sender] += msg.value;
@@ -40,7 +43,7 @@ contract EtherStore {
         require(bal > 0);
 
         (bool sent, ) = msg.sender.call{value: bal}("");
-        require(sent, "Failed to send Ether");
+        require(sent, "Failed to send Ether....");
 
         balances[msg.sender] = 0;
     }
